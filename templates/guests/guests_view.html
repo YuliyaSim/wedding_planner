@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block navbar%}
+{% include 'partials/navbar.html' %}
+{% endblock %}
+
+{% block content %}
+<h1>Guests</h1>
+<ul>
+{% for guest in object_list %}
+    <li>{{ guest.name }}</li>
+{% empty %}
+    <li>No guests yet.</li>
+{% endfor %}
+</ul>
+{% endblock %}
+
+{% block footer %}
+{% include 'partials/footer.html' %}
+{% endblock %}

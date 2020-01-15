@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block navbar%}
+{% include 'partials/navbar.html' %}
+{% endblock %}
+
+<style>
+    .counter_image {
+    margin-left: -130px;
+    margin-bottom: 60px;
+    margin-top: 68px;
+}
+</style>
+
+{% block content %}
+<div class="Main-agile">
+    <!-- banner -->
+ <!-- banner-text -->
+    <div class="slider">
+        <div class="callbacks_container">
+            <ul class="rslides callbacks callbacks1" id="slider4">
+                <li>
+                    <div class="w3layouts-banner-top banner">
+                        <div class="w3l-overlay">
+                            <div class="container">
+                                <div class="agileits-banner-info">
+                                    <h4>Love Is In The Air</h4>
+                                    <h3>Initial consultation</h3>
+                                    <p>Plan With Us The Wedding Of Your Dreams</p>
+                                    {% if user.is_authenticated %}
+                                    <h5><a href="{% url 'create_wed:create_wedding' %}" class="view rew3"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>Start Here</a></h5>
+                                    {% else %}
+                                    <h5><a href="{% url 'create_wed:login' %}" class="view rew3"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>Start Here</a></h5>
+                                    {% endif %}</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="w3layouts-banner-top banner-2">
+                        <div class="w3l-overlay">
+                            <div class="container">
+                                <div class="agileits-banner-info">
+                                    <h4>Love Is In The Air</h4>
+                                    <h3>Initial consultation</h3>
+                                    <p>Plan With Us The Wedding Of Your Dreams</p>
+                                    {% if user.is_authenticated %}
+                                    <h5><a href="{% url 'create_wed:create_wedding' %}" class="view rew3"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>Start Here</a></h5>
+                                    {% else %}
+                                    <h5><a href="{% url 'create_wed:login' %}" class="view rew3" data-toggle="modal" data-target="#myModal5"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>Start Here</a></h5>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+        <!-- //banner-text -->
+    </div>
+</div>
+<!-- //banner -->
+
+<!-- Counter -->
+    <section class="counter" style="margin: 60px 0px 44px -50px;">
+
+<h3 class="w3_tittle">Soon!</h3>
+                    <img class="counter_image" src="{% static 'images/counter.png' %}" alt="Counter Background">
+
+
+    </section>
+<!-- //Counter -->
+<!-- Services -->
+<div class="clearfix"> </div>
+<div class="agile-serv">
+      <div class="container">
+          <h3 class="w3_tittle">Our Services</h3>
+    <div class="col-md-6 agileits-serv">
+        <div class="left-w3l">
+            <h4>Wedding Planning Has Never Been Easier</h4>
+            <h5>Wedding Planning</h5>
+            <p>Planning a wedding involves endless details, deadlines, family drama, and far too often enough stress to
+                make you want to just elope. Use our planning checklist, read our budgeting tips, and access our wedding
+                planner to help you pull it all together.</p>
+            <ul>
+                <li><a href="{% url 'guests:manual_guest_list' %}"><i class="glyphicon glyphicon-ok"></i>Start entering guest list </a></li>
+                <li><a href="{% url 'todo:create_wedding_day' %}"><i class="glyphicon glyphicon-ok"></i>Wedding Day Schedule</a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-ok"></i>Budget planning & tracking estimates</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-6 right-w3l" style="padding-bottom: 42px;">
+        <div class="welcome-bottom">
+            <div class="welcome-grid">
+                <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+                <h4>The Knot</h4>
+                <p><a href="{% url 'create_wed:create_wedding' %}">Create your wedding here.</a></p>
+            </div>
+            <div class="welcome-grid">
+                <i class="fa fa-gratipay" aria-hidden="true"></i>
+                <h4>To Do</h4>
+                <p><a href="{% url 'todo:todo_list' %}">Wedding planning to do list.</a></p>
+            </div>
+            <div class="welcome-grid">
+                <i class="fa fa-glass" aria-hidden="true"></i>
+                <h4>Coordination</h4>
+                <p><a href="{% url 'todo:create_coordination' %}">List roles that can be done by friends or professionals.</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"> </div>
+</div>
+</div>
+<!-- //Services -->
+<!-- Contact -->
+<div class="contact" id="contact">
+    <div class="container">
+        <h3 class="w3_tittle">Contact Us</h3>
+        <div class="contact-grid1">
+            <div class="contact-top1">
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="Name" placeholder="Name" required="">
+                    </div>
+                    <div class="form-group">
+                        <label>E-mail</label>
+                        <input type="email" name="E-mail" placeholder="E-mail" required="">
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea placeholder name="Message" required=""></textarea>
+                    </div>
+                    <input type="submit" value="Send">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //Contact -->
+<!-- map -->
+<div class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d2482.432383990807!2d0.028213999961443994!3d51.52362882484525!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1423469959819" ></iframe>
+    <div class="map-pos">
+        <h3>ADDRESS</h3>
+        <p>35, Ahad Haam Str.</p>
+        <p>Tel Aviv</p>
+        <p>Call : 123 456 7890</p>
+        <p><a href="mailto:info@example.com">mail@example.com</a></p>
+    </div>
+</div>
+<!-- //map -->
+<!-- //main -->
+
+{% endblock %}
+
+<style>
+    .counter_image {
+    margin-left: -130px;
+    margin-bottom: 60px;
+    margin-top: 68px;
+}
+</style>
+
+{% block footer %}
+{% include 'partials/footer.html' %}
+{% endblock %}

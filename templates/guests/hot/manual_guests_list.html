@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% block navbar%}
+{% include 'partials/navbar.html' %}
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Schedule wedding day -->
+<style>
+        body {
+            background: url(../../static/images/slider3.jpg) no-repeat center center fixed;
+            background-size: cover;
+            height: 100%;
+            background-color: #cccccc;
+
+        }
+        div.container {
+            height: 10em;
+            position: relative
+        }
+        div.container form {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, 0%)
+        }
+        .title{
+        font-size: 2.1em;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #fff;
+        display: block;
+        width: 50%;
+        margin: 1.5em auto 0;
+        }
+
+        .new_button{
+            font-size: 1.1em;
+            outline: none;
+            border: none;
+            text-transform: uppercase;
+            background: #000;
+            padding: 0.7em 0;
+            letter-spacing: 1px;
+            color: #fff;
+            display: block;
+            width: 15%;
+            margin: 1.5em auto 0;
+            -webkit-transition: .5s all;
+        }
+        .agile-top{
+            background-color: #212121 !important;
+            z-index: 999;
+            width: 100%;
+            top: 0%;
+        }
+        td, th {
+            padding: 10px !important;
+            color: antiquewhite !important;
+        }
+        .contact-top1 {
+    background: rgba(255, 47, 104, 0.3);
+    padding: 3em 0em 4em;
+}
+h4{
+    font-size: 23px;
+    color: antiquewhite !important;
+}
+.footer {
+
+    padding: 5em 0em;
+}
+    </style>
+
+
+
+<div class="contact" id="contact">
+    <div class="container" style="margin-top: 50px;">
+        <h3 class="w3_tittle">Create Wedding Guest List</h3>
+        <div class="contact-grid1" >
+            <div class="contact-top1">
+<table>
+    <thead>
+    <tr>
+        <th><h4>First Name</h4></th>
+        <th><h4>Last Name</h4></th>
+        <th><h4>Email</h4></th>
+        <th><h4>Invited By</h4></th>
+        <th><h4>Save the Date</h4></th>
+        <th><h4>Invitation</h4></th>
+        <th><h4>Response</h4></th>
+        <th><h4>Attending</h4></th>
+        <th><h4>Children</h4></th>
+        <th><h4>Dietary Restrictions</h4></th>
+        <th><h4>Table #</h4></th>
+        <th><h4>Gift Description</h4></th>
+        <th><h4>Thank You Sent?</h4></th>
+        <th><h4>Notes</h4></th>
+
+    </tr>
+    </thead>
+
+<tbody>
+
+{% for guest in object_list %}
+<tr>
+    <td>{{ guest.first_name }}</td>
+    <td>{{ guest.last_name }}</td>
+    <td>{{ guest.email }}</td>
+    <td>{{ guest.invited_by }}</td>
+    <td>{{ guest.save_the_date }}</td>
+    <td>{{ guest.invitation }}</td>
+    <td>{{ guest.response }}</td>
+    <td>{{ guest.attending }}</td>
+    <td>{{ guest.children }}</td>
+    <td>{{ guest.dietary_restrictions }}</td>
+    <td>{{ guest.table_number }}</td>
+    <td>{{ guest.gift_description }}</td>
+    <td>{{ guest.thank_you_sent }}</td>
+    <td>{{ guest.notes }}</td>
+
+</tr>
+{% endfor %}
+
+</tbody>
+    </table>
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% include 'partials/footer.html' %}
+{% endblock %}

@@ -1,0 +1,31 @@
+<!-- Footer -->
+<div class="footer w3ls" style="margin-top: -110px; margin-bottom: -50px;">
+	<div class="container">
+			<div class="logo-fo">
+				<h2><a href="{% url 'create_wed:home' %}">Your Perfect Wedding</a></h2>
+			</div>
+			<div class="ftr-menu">
+				 <ul>
+					<li><a href="{% url 'create_wed:home' %}">Home</a></li>
+					 {% if user.is_authenticated %}
+					 <li><a href="{% url 'create_wed:create_wedding' %}">Create a Wedding</a></li>
+					 {% else %}
+					 <li><a href="{% url 'create_wed:signup' %}">Registration</a></li>
+
+					 {% endif %}
+					<li><a href="{% url 'create_wed:contact' %}">Contact Us</a></li>
+					<li><a href="{% url 'create_wed:services' %}">Services</a></li>
+				 </ul>
+			</div>
+			<div class="w3ls-social-icons-2">
+				<a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+				<a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+				<a class="pinterest" href="#"><i class="fa fa-google-plus"></i></a>
+				<a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+				<a class="tumblr" href="#"><i class="fa fa-tumblr"></i></a>
+			</div>
+			<div class="clearfix"> </div>
+	</div>
+</div>
+
+<!-- //Footer -->

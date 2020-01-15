@@ -1,0 +1,72 @@
+
+
+{% extends 'base.html' %}
+
+{% block navbar %}
+{% include 'partials/navbar.html' %}
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<style>
+    .agile-top{
+    background-color: #212121 !important;
+    z-index: 999;
+    width: 100%;
+	top: 0%;
+	}
+	 .new_button{
+            font-size: 1.1em;
+            outline: none;
+            border: none;
+            text-transform: uppercase;
+            background: #000;
+            padding: 0.7em 0;
+            letter-spacing: 1px;
+            color: #fff;
+            display: block;
+            width: 33%;
+
+            -webkit-transition: .5s all;
+        }
+
+</style>
+<div class="container">
+<!-- Create a Wedding -->
+<div class="content-agileits" id="about">
+    <div class="welcome-w3">
+        <div class="container" style="margin-top: 0px">
+            <h3 class="w3_tittle">Create a Wedding</h3>
+            <div class="welcome-grids">
+                <div class="col-md-5 wel-grid1">
+                    <div class="port-7 effect-2">
+                        <div class="image-box">
+                            <img src="{% static 'images/ab.jpg' %}">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-7 wel-grid">
+                    <h4>Pease fill the form below</h4>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <br>
+                        <button type="submit" class="new_button" >Create a Wedding</button>
+                    </form>
+                    </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- //Create a wedding -->
+
+{% endblock %}
+
+
+{% block footer %}
+{% include 'partials/footer.html' %}
+{% endblock %}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>TodoApp - Create A Todo With Django</title>
+  {% load static %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" type="text/css" href="{% static 'css/style1.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        body {
+            background: url(../../static/images/slider2.jpg) no-repeat center center fixed;
+            background-size: cover;
+            height: 100%;
+            background-color: #cccccc;
+
+        }
+    </style>
+</head>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #222;">
+
+  <div class="col-md-6 logo">
+				<h1><a href="{% url 'create_wed:home' %}">Your Perfect Wedding</a></h1>
+			</div>
+ <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+						<ul class="nav navbar-nav navbar-left">
+
+							<li class="active nav-item"><a class="nav-link" href="{% url 'create_wed:home' %}">HOME</a></li>
+							<li class="nav-item"><a class="nav-link" href="{% url 'create_wed:create_wedding' %}">CREATE A WEDDING</a></li>
+							<li class="nav-item"><a class="nav-link" href="{% url 'create_wed:services' %}">SERVICES</a></li>
+							<li class="nav-item"><a class="nav-link" href="{% url 'create_wed:logout' %}">LOGOUT</a></li>
+
+						</ul>
+ </div>
+</nav>
+
+<body>
+
+<div django-app="TaskManager">
+    <div class="container">
+            <div class="content">
+            <h1>Make your To Do List Here</h1><br>
+            <form action="" method="post">
+            {% csrf_token %} <!-- csrf token for basic security -->
+                <div class="inputContainer">
+                    <input type="text" id="description" class="taskName" placeholder="What do you need to do?" name="description" required>
+                    <label for="description">Description</label>
+                </div>
+                <div class="inputContainer half last">
+                    <i class="fa fa-caret-down selectArrow"></i>
+                    <select id="category" class="taskCategory" name="category_select">
+                    <option class="disabled" value="">Choose a category</option>
+                    {% for category in categories %}
+                        <option class="" value="{{ category.name }}" name="{{ category.name }}">{{ category.name }}</option>
+                    {% endfor %}
+                    </select>
+                    <label for="category">Category</label>
+                </div>
+                <div class="inputContainer half last right">
+                    <input type="date" id="dueDate" class="taskDate" name="date">
+                    <label for="dueDate">Due Date</label>
+                </div>
+                <div class="row">
+                    <button class="taskAdd new_button" name="taskAdd" type="submit"><i class="fa fa-plus icon"></i>Add task</button>
+                    <button class="taskDelete new_button" name="taskDelete" formnovalidate="" type="submit" onclick="$('input#sublist').click();"><i class="fa fa-trash-o icon"></i>Delete Tasks</button>
+                </div>
+            <ul class="taskList">
+            {% for todo in todos %} <!-- django template lang - for loop -->
+                <li class="taskItem">
+                    <input type="checkbox" class="taskCheckbox" name="checkedbox" id="{{ todo.id }}" value="{{ todo.id }}">
+                    <label for="{{ todo.id }}"><span class="complete-">{{ todo.title }}</span></label>
+                    <span class="category-{{ todo.category }}">{{ todo.category }}</span>
+                    <strong class="taskDate"><i class="fa fa-calendar"></i>{{ todo.created }} - {{ todo.due_date }}</strong>
+                </li>
+            {% endfor %}
+            </ul><!-- taskList -->
+            </form>
+            </div><!-- content -->
+ </div><!-- container -->
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+    .new_button{
+        background: rgba(255, 47, 104, 0.9);
+    }
+    [class*='category-']{
+        background: rgba(255, 47, 104, 0.9);
+    }
+    h1 {
+        color: rgba(255, 47, 104);
+    }
+    a {
+        color: white;
+    }
+    .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    color: white;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+</style>
+</body>
+</html>

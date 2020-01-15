@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block navbar%}
+{% include 'partials/navbar.html' %}
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Services -->
+<style>
+    .agile-top{
+    background-color: #212121 !important;
+    z-index: 999;
+    width: 100%;
+	top: 0%;
+	}
+
+</style>
+
+<div class="clearfix"> </div>
+<div class="agile-serv">
+      <div class="container" style="margin-top: 50px;">
+          <h3 class="w3_tittle">Our Services</h3>
+    <div class="col-md-6 agileits-serv">
+        <div class="left-w3l">
+            <h4>Wedding Planning Has Never Been Easier</h4>
+            <h5>Wedding Planning</h5>
+            <p>Planning a wedding involves endless details, deadlines, family drama, and far too often enough stress to
+                make you want to just elope. Use our planning checklist, read our budgeting tips, and access our wedding
+                planner to help you pull it all together.</p>
+            <ul>
+                <li><a href="{% url 'guests:manual_guest_list' %}"><i class="glyphicon glyphicon-ok"></i>Start entering guest list </a></li>
+                <li><a href="{% url 'todo:create_wedding_day' %}"><i class="glyphicon glyphicon-ok"></i>Wedding Day Schedule</a></li>
+                <li><a href="{% url 'guests:send_email' %}"><i class="glyphicon glyphicon-ok"></i>Save the Date & Invitations emails</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-6 right-w3l" style="padding-bottom: 42px;">
+        <div class="welcome-bottom">
+            <div class="welcome-grid">
+                <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+                <h4>The Knot</h4>
+                <p><a href="{% url 'create_wed:create_wedding' %}">Create your wedding here.</a></p>
+            </div>
+            <div class="welcome-grid">
+                <i class="fa fa-gratipay" aria-hidden="true"></i>
+                <h4>To Do</h4>
+                <p><a href="{% url 'todo:todo_list' %}">Wedding planning to do list.</a></p>
+            </div>
+            <div class="welcome-grid">
+                <i class="fa fa-glass" aria-hidden="true"></i>
+                <h4>Coordination</h4>
+                <p><a href="{% url 'todo:create_coordination' %}">List roles that can be done by friends or professionals.</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"> </div>
+</div>
+</div>
+
+
+<!-- //Services -->
+
+{% endblock %}
+
+
+{% block footer %}
+{% include 'partials/footer.html' %}
+{% endblock %}

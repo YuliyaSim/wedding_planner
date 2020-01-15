@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block navbar%}
+{% include 'partials/navbar.html' %}
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Services -->
+<style>
+    .agile-top{
+    background-color: #212121 !important;
+    z-index: 999;
+    width: 100%;
+	top: 0%;
+	}
+    .new_button{
+    font-size: 1.1em;
+    outline: none;
+    border: none;
+    text-transform: uppercase;
+    background: #000;
+    padding: 0.7em 0;
+    letter-spacing: 1px;
+    color: #fff;
+    display: block;
+    width: 18%;
+    margin: 1.5em auto 0;
+    -webkit-transition: .5s all;
+    }
+</style>
+
+<!-- Contact -->
+<div class="contact" id="contact">
+    <div class="container" style="margin-top: 100px;">
+        <h3 class="w3_tittle">Contact Us</h3>
+        <div class="contact-grid1">
+            <div class="contact-top1">
+                <form action="#" method="post">
+                    <div class="form-group">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                    </div>
+                     <button type="submit" class="new_button">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //Contact -->
+
+<!-- map -->
+<div class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d2482.432383990807!2d0.028213999961443994!3d51.52362882484525!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1423469959819" ></iframe>
+    <div class="map-pos">
+        <h3>ADDRESS</h3>
+        <p>35, Ahad Haam Str.</p>
+        <p>Tel Aviv</p>
+        <p>Call : 123 456 7890</p>
+        <p><a href="mailto:info@example.com">mail@example.com</a></p>
+    </div>
+</div>
+<!-- //map -->
+
+
+{% endblock %}
+
+
+{% block footer %}
+{% include 'partials/footer.html' %}
+{% endblock %}

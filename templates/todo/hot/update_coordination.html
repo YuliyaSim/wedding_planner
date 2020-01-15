@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block navbar%}
+{% include 'partials/navbar.html' %}
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Coordinations -->
+<style>
+        body {
+            background: url(../../static/images/slider3.jpg) no-repeat center center fixed;
+            background-size: cover;
+            height: 100%;
+            background-color: #cccccc;
+
+        }
+
+        .agile-top{
+            background-color: #212121 !important;
+            z-index: 999;
+            width: 100%;
+            top: 0%;
+        }
+        td, th {
+            padding: 10px !important;
+
+        .footer {
+              position: fixed;
+              left: 0;
+              bottom: 0;
+              width: 100%;
+              background-color: red;
+              color: white;
+              text-align: center;
+        }
+
+    </style>
+
+<div class="contact" id="contact">
+    <div class="container" style="margin-top: 50px;">
+        <h3 class="w3_tittle">Coordination</h3>
+        <div class="contact-grid1" style="color: antiquewhite;" >
+            <div class="contact-top1" style="background: rgba(255, 47, 104, 0.3);">
+                <table>
+                    <thead>
+                    <tr>
+                        <th><h4>Name</h4></th>
+                        <th><h4>Role</h4></th>
+                        <th><h4>Phone</h4></th>
+                        <th><h4>Email</h4></th>
+                        <th><h4>Website</h4></th>
+                        <th><h4>Cost</h4></th>
+                        <th><h4>Notes</h4></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for coordinator in object_list %}
+                    <tr>
+                        <td>{{ coordinator.name }}</td>
+                        <td>{{ coordinator.role }}</td>
+                        <td>{{ coordinator.phone }}</td>
+                        <td>{{ coordinator.email }}</td>
+                        <td>{{ coordinator.website }}</td>
+                        <td>{{ coordinator.cost }}</td>
+                        <td>{{ coordinator.notes }}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+{% block footer %}
+{% include 'partials/footer.html' %}
+{% endblock %}
+

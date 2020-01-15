@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block navbar%}
+{% include 'partials/navbar.html' %}
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Services -->
+<style>
+    .agile-top{
+    background-color: #212121 !important;
+    z-index: 999;
+    width: 100%;
+	top: 0%;
+	}
+    .new_button{
+    font-size: 1.1em;
+    outline: none;
+    border: none;
+    text-transform: uppercase;
+    background: #000;
+    padding: 0.7em 0;
+    letter-spacing: 1px;
+    color: #fff;
+    display: block;
+    width: 18%;
+    margin: 1.5em auto 0;
+    -webkit-transition: .5s all;
+    }
+</style>
+
+<div class="contact" id="contact">
+    <div class="container" style="margin-top: 100px;">
+        <h3 class="w3_tittle">Registration</h3>
+        <div class="contact-grid1">
+            <div class="contact-top1">
+                <form action="#" method="post">
+                    <div class="form-group">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                    </div>
+                     <button type="submit" class="new_button">SignUp</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+{% block footer %}
+{% include 'partials/footer.html' %}
+{% endblock %}
+
+
+
+
